@@ -1,0 +1,83 @@
+Import JSON
+main() 
+create game and give it the default node
+keepGoing variable True
+
+While keepGoing 
+Call on the menu function to display menu/get users input 
+		If input is 0 
+			keepGoing gets false
+		If input is 1
+			Game gets getDefaultGame() 
+		If input is 2
+			Game gets loadGame() (loads from the game.json file)
+		If input is 3 
+			Run saveGame(game) (this saves to game.json file)
+		If input is 4 
+			Game gets editNode(game)
+		If input is 5 
+			Run playGame(game)
+		else 
+			Tell user to enter valid input 
+
+getMenuChoice()
+prints menu of choices for user, numbered and indented 
+Ask user to choose a menu item
+Return their input 
+
+getDefaultGame()
+write dictionary <game> with one node – start over or quit 
+return <game>
+
+loadGame()
+open the JSON file (game.json) “r”
+put the data from game.json into <game>
+close file
+print message confirming loading
+return game 
+
+saveGame(game) – 
+	open a write JSON file and save <game> to it – indent to make readable
+	close file 
+	print a message saying it saves 
+
+
+
+playGame(game) 
+set current node as start
+loop the playNode() function until the current node is quit
+
+playNode(game, currentNode)
+variable nodeData equal to the current node of game
+print out the node information
+ask for user choice
+if 1
+	return nodeData 2
+if 2 
+	return nodeData 4
+else
+	tell user to enter valid input 
+return the current node 
+
+editField(text, field)
+print the text prompt/field's current value and get users input
+if the user presses 'enter' immediately (blank quotes)
+return the current field value
+	else
+return the users input as the new field
+
+
+editNode(game)
+print the game content  - json.dumps() – indent 2 to format
+use a for loop to print out just the node names (keys)
+ask user for a node name they want to edit or create
+if that node exists
+copy node to newNode - .copy() method?
+else
+create newNode list with empty data – 5 empty spaces
+
+use editField() for each item in node - send it the prompt and current value
+add the new node to game
+return game
+
+run main()!
